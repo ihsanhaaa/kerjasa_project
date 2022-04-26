@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-
-use App\Models\Category;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\DashboardController as UserDashboard;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,33 +21,20 @@ use App\Models\Category;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/how', function () {
-    return view('how');
-})->name('how');
+Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
+Route::get('auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 
-Route::get('/create', function () {
-    return view('checkout.create');
-})->name('create');
+Route::get('/checkout', function () {
+    return view('checkout.index');
+})->name('checkout');
+Route::get('/checkout-success', function () {
+    return view('checkout.success');
+})->name('checkout-success');
 
-Route::get('/checkout-successs', function () {
-    return view('checkout.checkout-successs');
-})->name('checkout-successs');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/products', [ProductController::class, 'index'])->name('product');
-Route::get('/products/{product:slug}', [ProductController::class, 'show']);
-
-
-Route::get('/categories', function() {
-    return view('/categories', [
-        'categories' => Category::all(),
-    ]);
-});
-
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('/category', [
-        'products' => $category->products,
-        'category' => $category->name
-    ]);
-});
+require __DIR__.'/auth.php';
