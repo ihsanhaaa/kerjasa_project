@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('package');
             $table->string('benefit');
             $table->integer('price');
-            $table->integer('description');
+            $table->string('description');
             $table->string('name_profil');
             $table->longText('bio_profil');
             $table->string('fb_profil')->nullable();
