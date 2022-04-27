@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Kerjasa | Halaman Utama
+    Kerjasa | Beranda
 @endsection
 
 @section('content')
@@ -73,7 +73,7 @@
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
                     <div class="col">
                         <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
+                            <a href="">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="225"
                                     src="img/product-details-3.jpg" alt="">
                                 <div class="card-body">

@@ -17,7 +17,7 @@
                         <a class="nav-link" href="#">Acara</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products">Layanan</a>
+                        <a class="nav-link" href="/products">Layanan</a>
                     </li>
                 </ul>
                 @auth

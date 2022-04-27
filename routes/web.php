@@ -2,11 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
+use App\Http\Controllers\User\CheckoutController;
+
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,15 +29,18 @@ Route::get('/', function () {
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 
-Route::get('/checkout', function () {
-    return view('checkout.index');
-})->name('checkout');
-Route::get('/checkout-success', function () {
-    return view('checkout.success');
-})->name('checkout-success');
+Route::get('products', [ProductController::class, 'index']);
+Route::get('products/{product:slug}', [ProductController::class, 'show']);
+
+Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('checkout/{product:slug}', [CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';

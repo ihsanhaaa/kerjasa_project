@@ -95,4 +95,22 @@
             </div>
     </section>
 
+    <section>
+        <div class="container">
+        <div class="kategori">
+                        <div class="row">
+                        @foreach($categories as $category)
+                            <div class="col">
+                                <a href="">
+                                    <img src="img/ic_globe-1.png" class="rounded mb-2" alt="...">
+                                    <p>{{ $category->name }}</p>
+                                </a>
+                            </div>
+                            @endforeach
+                            
+                        </div>
+                    </div>
+        </div>
+    </section>
+
 @endsection

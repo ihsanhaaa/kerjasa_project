@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Kerjasa | Halaman Utama
+    Kerjasa | Halaman Checkout
 @endsection
 
 @section('content')
@@ -24,71 +24,51 @@
                                 <li class="list-group-item d-flex justify-content-between lh-sm">
                                     <div>
                                         <h6 class="my-0">Nama Layanan:</h6>
-                                        <small class="text-muted">Jasa Sewa Zoom 1 Hari</small>
+                                        <small class="text-muted">{{  $product->title }}</small>
                                     </div>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between lh-sm">
                                     <div>
                                         <h6 class="my-0">Benefit:</h6>
                                         <small class="text-muted">
-                                            - Brief description <br>
-                                            - Brief description <br>
-                                            - Brief description <br>
-                                            - Brief description <br>
+                                            {{  $product->benefit }}
                                         </small>
                                     </div>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between">
                                     <h6 class="my-0">Harga:</h6>
-                                    <strong>Rp.20000</strong>
+                                    <strong>Rp.{{  $product->price }}</strong>
                                 </li>
                             </ul>
 
                         </div>
                         <div class="col-md-7 col-lg-8">
                             <h4 class="mb-3">Info Pemesan</h4>
-                            <form class="needs-validation" novalidate>
+                            <form action="{{ route('checkout.store', $product->id) }}" class="needs-validation" method="POST">
+                                @csrf
                                 <div class="row g-3">
-                                    <div class="col-sm-6">
-                                        <label for="firstName" class="form-label">First name</label>
-                                        <input type="text" class="form-control" id="firstName" placeholder="" value=""
-                                            required>
+                                <div class="col-12">
+                                        <label for="name" class="form-label">Nama Lengkap</label>
+                                        <input name="name" type="text" class="form-control" id="name" placeholder="" value="{{ Auth::user()->name }}">
                                         <div class="invalid-feedback">
-                                            Valid first name is required.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <label for="lastName" class="form-label">Last name</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="" value=""
-                                            required>
-                                        <div class="invalid-feedback">
-                                            Valid last name is required.
+                                        Please enter your name.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email" placeholder="">
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="" value="{{ Auth::user()->email }}">
                                         <div class="invalid-feedback">
-                                            Please enter a valid email address for shipping updates.
+                                        Please enter your email.
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="address" class="form-label">Ho HP</label>
-                                        <input type="number" class="form-control" id="address"
+                                        <label for="phone" class="form-label">Ho HP</label>
+                                        <input name="phone" type="number" class="form-control" id="phone" value="{{ Auth::user()->phone }}"
                                             placeholder="08xxxxxxxxxx" required>
                                         <div class="invalid-feedback">
-                                            Please enter your shipping address.
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="address" class="form-label">Alamat</label>
-                                        <input type="text" class="form-control" id="address" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                            Please enter your shipping address.
+                                            Please enter your number.
                                         </div>
                                     </div>
 
@@ -96,7 +76,7 @@
 
                                 <hr class="my-4">
 
-                                <a href="checkout-successs" class="w-100 btn btn-primary btn-lg mb-5">Lanjut Ke Pembayaran</a>
+                                <button class="w-100 btn btn-primary btn-lg mb-5">Bayar Sekarang</button>
 
                             </form>
                         </div>

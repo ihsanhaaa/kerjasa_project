@@ -31,14 +31,19 @@ class UserController extends Controller
             'email_verified_at' => date('Y-m-d H:i:s', time()),
         ];
 
-        // $user = User::firstOrCreate(['email' => $data['email']], $data);
-        $user = User::whereEmail($data['email'])->first();
-        if (!$user) {
-            $user = User::create($data);
-            Mail::to($user->email)->send(new AfterRegister($user));
-        }
+        $user = User::firstOrCreate(['email' => $data['email']], $data);
         Auth::login($user, true);
 
         return redirect(route('welcome'));
+
+        // $user = User::firstOrCreate(['email' => $data['email']], $data);
+        // $user = User::whereEmail($data['email'])->first();
+        // if (!$user) {
+        //     $user = User::create($data);
+        //     Mail::to($user->email)->send(new AfterRegister($user));
+        // }
+        // Auth::login($user, true);
+
+        // return redirect(route('welcome'));
     }
 }

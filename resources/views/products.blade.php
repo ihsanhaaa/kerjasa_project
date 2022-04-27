@@ -33,86 +33,24 @@
             <!-- produk -->
             <div class="review">
                 <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4">
+                    @foreach($products as $product)
                     <div class="col">
                         <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
+                            <a href="/products/{{ $product->slug }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="225"
                                     src="img/product-details-3.jpg" alt="">
                                 <div class="card-body">
-                                    <h6 class="my-2">Desain Feed Instagram</h6>
-                                    <small class="text-muted">Paket: Unlimited</small>
+                                    <h6 class="my-2">{{ $product->title }}</h6>
+                                    <small class="text-muted">Paket: {{ $product->package }}</small>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <h6 class="my-0">Rp15.000</h6>
-                                        <span class="badge bg-success">20%</span>
+                                        <h6 class="my-0">Rp.{{ $product->price }}</h6>
+                                        <span class="badge bg-success">{{ $product->category->name }}</span>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                    src="img/product-details-3.jpg" alt="">
-                                <div class="card-body">
-                                    <h6 class="my-2">Desain Feed Instagram</h6>
-                                    <small class="text-muted">Paket: Unlimited</small>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <h6 class="my-0">Rp15.000</h6>
-                                        <span class="badge bg-success">20%</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                    src="img/product-details-3.jpg" alt="">
-                                <div class="card-body">
-                                    <h6 class="my-2">Desain Feed Instagram</h6>
-                                    <small class="text-muted">Paket: Unlimited</small>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <h6 class="my-0">Rp15.000</h6>
-                                        <span class="badge bg-success">20%</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                    src="img/product-details-3.jpg" alt="">
-                                <div class="card-body">
-                                    <h6 class="my-2">Desain Feed Instagram</h6>
-                                    <small class="text-muted">Paket: Unlimited</small>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <h6 class="my-0">Rp15.000</h6>
-                                        <span class="badge bg-success">20%</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm mb-4">
-                            <a href="detailproduct.html">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                    src="img/product-details-3.jpg" alt="">
-                                <div class="card-body">
-                                    <h6 class="my-2">Desain Feed Instagram</h6>
-                                    <small class="text-muted">Paket: Unlimited</small>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <h6 class="my-0">Rp15.000</h6>
-                                        <span class="badge bg-success">20%</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

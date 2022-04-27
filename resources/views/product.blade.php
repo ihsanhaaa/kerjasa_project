@@ -21,7 +21,7 @@
                 <div class="row g-5">
                     <!-- slide gambar -->
                     <div class="col-md-7 col-lg-8">
-                        <h4 class="judul mb-3">Desain Feed Instagram</h4>
+                        <h4 class="judul mb-3">{{ $product->title }}</h4>
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -56,14 +56,14 @@
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
                                     <h6 class="my-0">Nama Layanan:</h6>
-                                    <small class="text-muted">Sewa Zoom 1 Hari</small>
+                                    <small class="text-muted">{{ $product->title }}</small>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
                                     <h6 class="my-0">Paket:</h6>
                                     <small class="text-muted">
-                                        Standart
+                                    {{ $product->package }}
                                     </small>
                                 </div>
                             </li>
@@ -71,20 +71,17 @@
                                 <div>
                                     <h6 class="my-0">Benefit:</h6>
                                     <small class="text-muted">
-                                        - Brief description <br>
-                                        - Brief description <br>
-                                        - Brief description <br>
-                                        - Brief description <br>
+                                        {{ $product->benefit }}
                                     </small>
                                 </div>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <h6 class="my-0">Harga:</h6>
-                                <strong>Rp.20000</strong>
+                                <strong>Rp.{{ $product->price }}</strong>
                             </li>
                         </ul>
 
-                        <a href="checkout.html" class="w-100 btn btn-primary btn-lg">Pesan Sekarang</a>
+                        <a href="{{ route('checkout.create', $product->slug) }}" class="w-100 btn btn-primary btn-lg">Pesan Sekarang</a>
 
                         <ul class="list-group mt-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -126,36 +123,7 @@
                     <!-- deskripsi -->
                     <div class="col-md-7 col-lg-8">
                         <h4 class="mb-3">Deskripsi</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cumque deserunt voluptate non
-                            impedit molestias excepturi, ratione magni neque est totam, dicta velit voluptatum
-                            accusamus. Quas mollitia iste maiores quisquam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius dolor ratione ducimus eum
-                            tempora saepe voluptatum dolorum id placeat distinctio dicta quaerat similique quisquam,
-                            vitae aperiam, omnis neque quis. Mollitia!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, atque esse rerum
-                            suscipit facere, dolorem adipisci voluptatibus sint laborum enim accusamus doloremque
-                            repudiandae nemo, ipsa nostrum quisquam quia? Quis, fugit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, nostrum ipsa aliquid eaque
-                            eligendi at totam accusantium obcaecati atque, aperiam magnam non architecto molestias,
-                            vitae culpa itaque veritatis aut cum?</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni dolorem omnis nemo,
-                            voluptatum porro rem qui nulla maxime veniam, nihil sapiente accusamus odit repellat
-                            molestias nesciunt voluptates quod quae mollitia!</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut cumque deserunt voluptate non
-                            impedit molestias excepturi, ratione magni neque est totam, dicta velit voluptatum
-                            accusamus. Quas mollitia iste maiores quisquam.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius dolor ratione ducimus eum
-                            tempora saepe voluptatum dolorum id placeat distinctio dicta quaerat similique quisquam,
-                            vitae aperiam, omnis neque quis. Mollitia!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, atque esse rerum
-                            suscipit facere, dolorem adipisci voluptatibus sint laborum enim accusamus doloremque
-                            repudiandae nemo, ipsa nostrum quisquam quia? Quis, fugit.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, nostrum ipsa aliquid eaque
-                            eligendi at totam accusantium obcaecati atque, aperiam magnam non architecto molestias,
-                            vitae culpa itaque veritatis aut cum?</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni dolorem omnis nemo,
-                            voluptatum porro rem qui nulla maxime veniam, nihil sapiente accusamus odit repellat
-                            molestias nesciunt voluptates quod quae mollitia!</p>
+                        {!! $product->description !!}
 
                         <h4 class="mt-4">Profil Freelancer</h4>
                         <div class="list-group my-3">
@@ -166,9 +134,8 @@
                                             <img src="img/fanny_photo.png" class="photo-profile rounded" alt="">
                                         </div>
                                         <div class="col-9 mx-auto">
-                                            <p class="text-muted my-2"><strong>Ihsan Haryansyah</strong></p>
-                                            <small class="text-muted">Tim support siap membantu untukmenindaklanjuti
-                                                pekerjaan dan jaminan uang kembali.</small>
+                                            <p class="text-muted my-2"><strong>{{ $product->name_profil }}</strong></p>
+                                            <small class="text-muted">{{ $product->bio_profil }}</small>
                                             <p class="text-muted mt-1"><strong>Follow:</strong>
                                                 <a class="btn" href="#">
                                                     <i class="fab fa-facebook"></i>
