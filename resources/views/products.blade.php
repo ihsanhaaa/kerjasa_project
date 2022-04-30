@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Kerjasa | Product
+    Kerjasa | Layanan
 @endsection
 
 @section('content')
@@ -36,7 +36,7 @@
                     @foreach($products as $product)
                     <div class="col">
                         <div class="card shadow-sm mb-4">
-                            <a href="/products/{{ $product->slug }}">
+                            <a href="/services/{{ $product->slug }}">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="225"
                                     src="img/product-details-3.jpg" alt="">
                                 <div class="card-body">

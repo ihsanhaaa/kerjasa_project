@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Kerjasa | Product
+    Kerjasa | Detail Layanan
 @endsection
 
 @section('content')

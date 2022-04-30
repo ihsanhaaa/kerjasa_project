@@ -11,7 +11,7 @@
             <div class="row py-lg-5">
                 <div class="right col-lg-12 col-md-12 mx-auto">
 
-                    <!-- <img src="img/logo.png" class="logo" alt=""> -->
+                    <!-- <img src="img/kerjasa.png" class="logo" alt=""> -->
                     <h1 class="header-third">
                         Start Today
                     </h1>

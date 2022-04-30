@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\User\Checkout\Store;
 use App\Models\Checkout;
 use App\Models\Product;
 use Auth;
@@ -25,7 +26,7 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product)
+    public function create(Product $product, )
     {
         return view('checkout.create', [
             "product" => $product
@@ -38,7 +39,7 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Product $product)
+    public function store(Store $request, Product $product)
     {
         // return $product;
         // return $request->all();
@@ -58,7 +59,9 @@ class CheckoutController extends Controller
         // create checkout
         $checkout = Checkout::create($data);
 
-        return redirect(route('checkout.success'));
+        $request->session()->flash('success', "Berhasil Membeli Layanan {$product->title}");
+        return redirect(route('dashboard'));
+        // return redirect(route('checkout.success'));
     }
 
     /**

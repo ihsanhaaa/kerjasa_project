@@ -49,27 +49,27 @@
                                 <div class="row g-3">
                                 <div class="col-12">
                                         <label for="name" class="form-label">Nama Lengkap</label>
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="" value="{{ Auth::user()->name }}">
-                                        <div class="invalid-feedback">
-                                        Please enter your name.
-                                        </div>
+                                        <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" value="{{Auth::user()->name}}"/>
+                                        @if ($errors->has('name'))
+                                            <p class="text-danger">{{$errors->first('name')}}</p>
+                                        @endif
                                     </div>
 
                                     <div class="col-12">
                                         <label for="email" class="form-label">Email</label>
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="" value="{{ Auth::user()->email }}">
-                                        <div class="invalid-feedback">
-                                        Please enter your email.
-                                        </div>
+                                        <input name="email" type="email" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" value="{{ Auth::user()->email }}">
+                                        @if ($errors->has('email'))
+                                            <p class="text-danger">{{$errors->first('email')}}</p>
+                                        @endif
                                     </div>
 
                                     <div class="col-12">
                                         <label for="phone" class="form-label">Ho HP</label>
-                                        <input name="phone" type="number" class="form-control" id="phone" value="{{ Auth::user()->phone }}"
-                                            placeholder="08xxxxxxxxxx" required>
-                                        <div class="invalid-feedback">
-                                            Please enter your number.
-                                        </div>
+                                        <input name="phone" type="number" class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}" value="{{ Auth::user()->phone }}"
+                                            placeholder="08xxxxxxxxxx">
+                                        @if ($errors->has('phone'))
+                                            <p class="text-danger">{{$errors->first('phone')}}</p>
+                                        @endif
                                     </div>
 
                                 </div>

@@ -245,7 +245,7 @@ footer {
 #home{
   height: 100vh;
   min-height: 500px;
-  background: url(../img/product-details-4.jpg) no-repeat center;
+  background: url(../img/banner.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -253,7 +253,7 @@ footer {
 #loginuser{
   height: 100vh;
   min-height: 500px;
-  background: url(../img/product-details-3.jpg) no-repeat center;
+  background: url(../img/banner.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -264,9 +264,8 @@ footer {
 }
 
 #pages{
-  background: url(../img/product-details-4.jpg) no-repeat center;
+  background: url(../img/product-details-3.jpg) no-repeat center;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 #home .content h1::after{
