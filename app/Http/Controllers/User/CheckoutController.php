@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\Checkout\Store;
-use App\Models\Checkout;
+use App\Mail\Checkout\AfterCheckout;
 use App\Models\Product;
 use Auth;
+use Mail;
+use Str;
 
 class CheckoutController extends Controller
 {
@@ -58,6 +61,9 @@ class CheckoutController extends Controller
 
         // create checkout
         $checkout = Checkout::create($data);
+
+        // sending email
+        Mail::to(Auth::user()->email)->send(new AfterCheckout($checkout));
 
         $request->session()->flash('success', "Berhasil Membeli Layanan {$product->title}");
         return redirect(route('dashboard'));
