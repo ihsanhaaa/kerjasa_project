@@ -9,41 +9,18 @@
 <section>
         <div class="container">
             <main>
-                <!-- breadcrumb -->
-                <nav class="detailproduct" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                    </ol>
-                </nav>
 
                 <!-- infol yanan dan slide -->
-                <div class="row g-5">
+                <div class="row g-5 detailproduct">
                     <!-- slide gambar -->
                     <div class="col-md-7 col-lg-8">
-                        <h4 class="judul mb-3">{{ $product->title }}</h4>
+                        <h4 class="judul mb-3 text-uppercase">{{ $product->title }}</h4>
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/product-details-3.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="img/product-details-4.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="img/product-details-3.jpg" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('storage/' . $product->image) }}" class="d-block w-100" alt="...">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
                     </div>
 
@@ -80,8 +57,10 @@
                                 <strong>Rp.{{ $product->price }}</strong>
                             </li>
                         </ul>
-
-                        <a href="{{ route('checkout.create', $product->slug) }}" class="w-100 btn btn-primary btn-lg">Pesan Sekarang</a>
+                        
+                        <a href="{{ route('checkout.create', $product->slug) }}" class="w-100 btn btn-primary" target="_blank">
+                            Checkout
+                        </a>
 
                         <ul class="list-group mt-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -94,66 +73,51 @@
 
                         <ul class="share list-group mt-3">
                             <hr class="my-3">
-                            <div class="text-center">
-                                <p>Bagikan Halaman Ini</p>
-                            </div>
+                            <p class="text-center">Bagikan Halaman Ini :</p>
                             <li class="d-flex justify-content-center lh-sm">
-                                <a class="btn" href="whatsapp://send?text=The text to share!"
-                                    data-action="share/whatsapp/share">
+                                <a class="btn" href="https://api.whatsapp.com/send?text={{ urlencode(url()->current()) }}" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
-                                </a>
-                                <a class="btn" href="#">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                                <a class="btn" href="instagram://user?username={USERNAME}" target="_blank">
-                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
-
                 </div>
-
-
 
                 <!-- detail produk -->
                 <div class="row g-5">
-
-
                     <!-- deskripsi -->
                     <div class="col-md-7 col-lg-8">
-                        <h4 class="mb-3">Deskripsi</h4>
+                        <h4 class="judul my-3"><strong>DESKRIPSI</strong></h4>
+                        <hr class="my-3">
                         {!! $product->description !!}
-
-                        <h4 class="mt-4">Profil Freelancer</h4>
+                        <h4 class="judul mt-5"><strong>PROFIL FREELANCER</strong></h4>
                         <div class="list-group my-3">
-                            <div class="list-group-item">
+                            <div class="profil list-group-item">
                                 <div class="row">
                                     <div class="row">
                                         <div class="col-3">
-                                            <img src="img/fanny_photo.png" class="photo-profile rounded" alt="">
+                                            <img src="{{ asset('img/person.png') }}" class="photo-profile rounded" alt="">
                                         </div>
                                         <div class="col-9 mx-auto">
                                             <p class="text-muted my-2"><strong>{{ $product->name_profil }}</strong></p>
                                             <small class="text-muted">{{ $product->bio_profil }}</small>
                                             <p class="text-muted mt-1"><strong>Follow:</strong>
-                                                <a class="btn" href="#">
+                                                <a class="btn" href="https://web.facebook.com/{{ $product->fb_profil }}"
+                                                    target="_blank">
                                                     <i class="fab fa-facebook"></i>
                                                 </a>
-                                                <a class="btn" href="instagram://user?username={USERNAME}"
+                                                <a class="btn" href="https://www.instagram.com/{{ $product->ig_profil }}"
                                                     target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                 </a>
                                             </p>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
+                </div>
             </main>
         </div>
     </section>

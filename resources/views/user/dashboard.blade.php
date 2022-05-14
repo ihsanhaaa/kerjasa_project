@@ -26,8 +26,10 @@
                         <div class="d-flex justify-content-between">
                             <strong class="text-gray-dark">{{ $checkout->Product->title }}</strong>
                             <strong class="text-gray-dark">Rp.{{ $checkout->Product->price }}</strong>
-                            <!-- <a href="#"><span class="badge bg-primary">{{ $checkout->Product->price }}</span></a> -->
-                            <a href="#">Follow</a>
+                            <strong>{{$checkout->payment_status}}</strong>
+                            @if ($checkout->payment_status == 'waiting')
+                                <a href="{{$checkout->midtrans_url}}" class="btn btn-primary" target="blank">Bayar Sekarang</a>
+                            @endif
                             <a href="https://wa.me/089602461010?text=Hi, saya ingin bertanya layanan {{$checkout->Product->title}}" class="btn btn-primary" target="_blank">Hubungi Freelancer</a>
                         </div>
                         <span class="d-block">{{ $checkout->created_at->format('M d, Y') }}</span>

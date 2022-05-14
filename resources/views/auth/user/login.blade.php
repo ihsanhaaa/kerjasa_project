@@ -12,11 +12,11 @@
                 <div class="right col-lg-12 col-md-12 mx-auto">
 
                     <!-- <img src="img/kerjasa.png" class="logo" alt=""> -->
-                    <h1 class="header-third">
-                        Start Today
+                    <h1 class="judul">
+                        MASUK DENGAN AKUN GOOGLE
                     </h1>
                     <p class="subheader">
-                        Because tomorrow become never
+                        Masuk lebih cepat dan aman menggunakan akun google
                     </p>
                     <p>
                         <a class="btn btn-border btn-google-login" href="{{ route('user.login.google') }}">

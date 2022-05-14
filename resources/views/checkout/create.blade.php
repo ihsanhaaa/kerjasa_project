@@ -66,7 +66,7 @@
                                     <div class="col-12">
                                         <label for="phone" class="form-label">Ho HP</label>
                                         <input name="phone" type="number" class="form-control {{$errors->has('phone') ? 'is-invalid' : ''}}" value="{{ Auth::user()->phone }}"
-                                            placeholder="08xxxxxxxxxx">
+                                            placeholder="+628xxxxxxxxxxx">
                                         @if ($errors->has('phone'))
                                             <p class="text-danger">{{$errors->first('phone')}}</p>
                                         @endif

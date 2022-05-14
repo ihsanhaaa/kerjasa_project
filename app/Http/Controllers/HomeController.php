@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Checkout;
 use Auth;
 
-
 class HomeController extends Controller
 {
     public function dashboard()
     {
-        $checkouts = Checkout::with('Product')->whereUserId(Auth::id())->get();
-        // return $checkouts;
-        return view('user.dashboard', [
-            'checkouts' => $checkouts
-        ]);
+        switch (Auth::user()->is_admin) {
+            case true:
+                return redirect(route('admin.dashboard'));
+                break;
+
+            default:
+                return redirect(route('user.dashboard'));
+                break;
+        }
     }
 }
