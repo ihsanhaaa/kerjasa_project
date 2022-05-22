@@ -8,38 +8,61 @@
     
 <section class="userdashboard">
         <div class="container">
-            <div class="bg-light p-5 rounded mt-3">
+            <div class="bg-light p-5 rounded">
                 <h1>Histori Pembelian</h1>
-                <p class="lead">Semua histori pembelian anda akan tampil disini.</p>
+                <p class="lead">Halo {{Auth::user()->name}}, semua histori pembelian anda akan tampil disini. Setelah melakukan pembayaran admin akan memproses layanan yang anda beli, terima kasih.</p>
             </div>
         </div>
     </section>
 
     <main class="container">
 
-        <div class="my-3 p-3 bg-light rounded shadow-sm">
-            @include('components.alert')
-            @forelse($checkouts as $checkout)
-                <div class="d-flex text-muted pt-3">
-                <i class="fas fa-check-circle text-green"></i>&nbsp
-                    <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-                        <div class="d-flex justify-content-between">
-                            <strong class="text-gray-dark">{{ $checkout->Product->title }}</strong>
-                            <strong class="text-gray-dark">Rp.{{ $checkout->Product->price }}</strong>
-                            <strong>{{$checkout->payment_status}}</strong>
-                            @if ($checkout->payment_status == 'waiting')
-                                <a href="{{$checkout->midtrans_url}}" class="btn btn-primary" target="blank">Bayar Sekarang</a>
-                            @endif
-                            <a href="https://wa.me/089602461010?text=Hi, saya ingin bertanya layanan {{$checkout->Product->title}}" class="btn btn-primary" target="_blank">Hubungi Freelancer</a>
-                        </div>
+    <div class="table-responsive bg-light rounded shadow-sm mt-4">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Layanan</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Bayar</th>
+                    <th scope="col">Kontak Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                @include('components.alert')
+              @forelse($checkouts as $checkout)
+                <tr>
+                    <td>1</td>    
+                    <td>
+                        <strong class="text-gray-dark">{{ $checkout->Product->title }}</strong>
+                    </td>
+                    <td>
+                        <strong class="text-gray-dark">Rp.{{ $checkout->Product->price }}</strong>
+                    </td>
+                    <td>
+                        <strong>{{$checkout->payment_status}}</strong>
+                    </td>
+                    <td>
                         <span class="d-block">{{ $checkout->created_at->format('M d, Y') }}</span>
-                    </div>
-                </div>
-            @empty
-                <h1>Tidak ada data</h1>
-            @endforelse
-            
-        </div>
+                    </td>
+                    <td>
+                        @if ($checkout->payment_status == 'waiting')
+                                <a href="{{$checkout->midtrans_url}}" class="btn btn-primary">Bayar Sekarang</a>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="https://wa.me/+6285754812451?text=Hi, saya ingin bertanya layanan {{$checkout->Product->title}}" class="btn btn-primary" target="_blank">Hubungi Admin</a>
+                    </td>
+                </tr>
+              @empty
+                <h3 class="text-center">Tidak ada histori pembelian</h3>
+              @endforelse
+            </tbody>
+        </table>
+    </div>
+
     </main>
 
 @endsection

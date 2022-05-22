@@ -17,15 +17,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('how') }}"
+            <a class="nav-link {{ (request()->is('how')) ? 'active' : '' }}" aria-current="page" href="{{ route('how') }}"
                 >Cara Menggunakan Kerjasa</a
             >
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{ route('event') }}">Acara</a>
+            <a class="nav-link {{ (request()->is('posts*')) ? 'active' : '' }}" href="/posts">Berita</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/services">Layanan</a>
+            <a class="nav-link {{ (request()->is('services*')) ? 'active' : '' }}" href="/services">Freelance</a>
             </li>
         </ul>
         @auth
@@ -46,7 +46,7 @@
             />
             @else
             <img
-                src="https://ui-avatars.com/api/?name=Admin"
+                src="https://ui-avatars.com/api/?name={{Auth::user()->name}}"
                 class="user-photo"
                 alt=""
                 style="border-radius: 50%"
@@ -64,14 +64,14 @@
                 </li>
                 <li>
                 <a
-                    href="#"
+                    href="{{ route('logout') }}"
                     class="dropdown-item"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit()"
                     >Sign Out</a
                 >
                 <form
                     id="logout-form"
-                    action="{{route('logout')}}"
+                    action="{{ route('logout') }}"
                     method="post"
                     style="display: none"
                 >
@@ -91,8 +91,8 @@
             href="https://wa.me/+6285754812451?text=Hai admin kerjasa.id, saya ingin mendaftar sebagai freelancer"
             class="btn btn-primary"
             target="_blank"
-            >
-            Daftar Sebagai Freelancer
+            ><i class="fas fa-paper-plane"></i>
+            &nbsp;Daftar Sebagai Freelancer
             </a>
         </div>
         @endauth

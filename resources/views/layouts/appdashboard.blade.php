@@ -25,6 +25,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
 
+    <!-- trix editor -->
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
+
 </head>
 
 <body>
@@ -39,7 +43,7 @@
         <input class="form-control form-control-dark w-100" placeholder="Halo selamat datang, {{Auth::user()->name}}" disabled>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a href="#" class="nav-link px-3"
+                <a href="{{ route('logout') }}" class="nav-link px-3"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
                 <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -61,27 +65,39 @@
                     </h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('dashboard') }}">
+                            <a class="nav-link {{ (request()->is('admin/dashboard')) ? 'active' : '' }}" aria-current="page" href="{{ route('dashboard') }}">
+                                <span data-feather="home"></span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/dashboard/checkouts*')) ? 'active' : '' }}" aria-current="page" href="{{ route('admin.checkouts.index') }}">
                                 <span data-feather="home"></span>
                                 Histori Transaksi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link {{ (request()->is('admin/dashboard/services*')) ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
                                 <span data-feather="shopping-cart"></span>
                                 Pekerjaan
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/users">
+                            <a class="nav-link {{ (request()->is('admin/dashboard/users*')) ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                                 <span data-feather="users"></span>
                                 Pelanggan
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/categories">
+                            <a class="nav-link {{ (request()->is('admin/dashboard/categories*')) ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
                                 <span data-feather="users"></span>
                                 Kategori
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (request()->is('admin/dashboard/posts*')) ? 'active' : '' }}" href="{{ route('admin.posts.index') }}">
+                                <span data-feather="users"></span>
+                                Postingan Berita
                             </a>
                         </li>
                     </ul>

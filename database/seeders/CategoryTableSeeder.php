@@ -18,7 +18,7 @@ class CategoryTableSeeder extends Seeder
             [
                 'name' => 'Desain Grafis',
                 'slug' => 'desain-grafis',
-                'photo' => 'desain-grafis.png',
+                'image' => 'desain-grafis.png',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ],

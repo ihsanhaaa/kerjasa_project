@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Kerjasa | Detail Layanan
+    Kerjasa | {{$product->title}}
 @endsection
 
 @section('content')
@@ -58,14 +58,14 @@
                             </li>
                         </ul>
                         
-                        <a href="{{ route('checkout.create', $product->slug) }}" class="w-100 btn btn-primary" target="_blank">
-                            Checkout
+                        <a href="{{ route('checkout.create', $product->slug) }}" class="w-100 btn btn-primary"><i class="fas fa-shopping-basket"></i>
+                            &nbsp;Checkout
                         </a>
 
                         <ul class="list-group mt-3">
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div class="text-center">
-                                    <small class="text-muted">Tim support siap membantu untuk menindaklanjuti pekerjaan
+                                    <small class="text-muted"><i class="fas fa-headset"></i>&nbsp;Tim support siap membantu untuk menindaklanjuti pekerjaan
                                         dan jaminan uang kembali. </small>
                                 </div>
                             </li>
@@ -87,35 +87,27 @@
                 <div class="row g-5">
                     <!-- deskripsi -->
                     <div class="col-md-7 col-lg-8">
-                        <h4 class="judul my-3"><strong>DESKRIPSI</strong></h4>
+                        <h4 class="judul my-1"><strong>DESKRIPSI</strong></h4>
                         <hr class="my-3">
                         {!! $product->description !!}
                         <h4 class="judul mt-5"><strong>PROFIL FREELANCER</strong></h4>
-                        <div class="list-group my-3">
-                            <div class="profil list-group-item">
-                                <div class="row">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="{{ asset('img/person.png') }}" class="photo-profile rounded" alt="">
-                                        </div>
-                                        <div class="col-9 mx-auto">
-                                            <p class="text-muted my-2"><strong>{{ $product->name_profil }}</strong></p>
-                                            <small class="text-muted">{{ $product->bio_profil }}</small>
+                        <ul class="list-group my-3">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div class="profil text-center">
+                                    <p class="text-muted my-2"><i class="fas fa-user-circle"></i><strong>&nbsp;{{ $product->name_profil }}</strong></p>
+                                        <small class="text-muted">{{ $product->bio_profil }}</small>
                                             <p class="text-muted mt-1"><strong>Follow:</strong>
-                                                <a class="btn" href="https://web.facebook.com/{{ $product->fb_profil }}"
-                                                    target="_blank">
-                                                    <i class="fab fa-facebook"></i>
-                                                </a>
-                                                <a class="btn" href="https://www.instagram.com/{{ $product->ig_profil }}"
-                                                    target="_blank">
-                                                    <i class="fab fa-instagram"></i>
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
+                                            <a class="btn" href="https://web.facebook.com/{{ $product->fb_profil }}"
+                                                target="_blank"><i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a class="btn" href="https://www.instagram.com/{{ $product->ig_profil }}"
+                                                target="_blank"><i class="fab fa-instagram"></i>
+                                            </a>
+                                        </p>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </main>

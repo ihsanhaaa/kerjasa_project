@@ -51,6 +51,15 @@ body {
   /* margin-right: 10px; */
 }
 
+.kategori-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.kategori a img:hover {
+  transform: scale(1.2);
+}
+
 .profil a i {
   font-size: 25px;
   color: #00d1fa;
@@ -85,10 +94,11 @@ body {
   font-weight: 600;
   font-size: 25px;
   color: #31B380;
+  /* -webkit-text-stroke: 1px white; */
 }
 
 .homepage {
-  margin-top: 80px;
+  margin-top: 85px;
 }
 
 .judul {
@@ -97,11 +107,54 @@ body {
   color: #00d1fa;
 }
 
+.judul-post {
+  margin-top: 130px;
+}
+
+.judul-products {
+  font-weight: 500;
+  font-size: 18px;
+  color: #00d1fa;
+}
+
+.price-products {
+    font-weight: 600;
+    font-size: 17px;
+    color: #000000;
+}
+
 .breadcrumb li a {
   font-weight: 400;
   font-size: 18px;
   color: #00d1fa;
   text-decoration: none;
+}
+
+.eventpage {
+  margin-top: 200px;
+}
+
+.juduldashboard {
+    font-weight: 600;
+    font-size: 30px;
+    color: #00d1fa;
+}
+
+.judul-how {
+    margin-top: 130px;
+    font-weight: 600;
+    font-size: 30px;
+    color: #00d1fa;
+}
+
+.copywriting {
+  margin-top: 200px;
+}
+
+.copywriting h2 {
+  color: #00d1fa;
+  font-weight: 600;
+  font-size: 30px;
 }
 
 .primary-header {
@@ -232,7 +285,7 @@ footer {
 #home{
   height: 100vh;
   min-height: 500px;
-  background: url(../img/banner-1.jpg) no-repeat center;
+  background: url(../img/banner-3.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -257,7 +310,7 @@ footer {
 }
 
 #pages{
-  background: url(../img/banner-2.jpg) no-repeat center;
+  background: url(../img/banner-5.jpg) no-repeat center;
   background-size: cover;
 }
 
@@ -354,7 +407,36 @@ footer {
 }
 
 .userdashboard {
-  margin-top: 100px;
+  margin-top: 125px;
+}
+
+.steps .cover {
+  height: 497px;
+}
+
+
+.side {
+  position: fixed;
+  top: 70%;
+  transform: translateY(-50%);
+}
+
+.side a {
+  font-size: 15px;
+  display: block;
+  width: 110px;
+  padding: 10px;
+  text-decoration: none;
+  margin: 8px 0;
+  color: white;
+  border-radius: 8px;
+  margin-left: -70px;
+  transition: 0.6s all;
+}
+
+
+.side a:hover {
+  margin-left: 0;
 }
 
 

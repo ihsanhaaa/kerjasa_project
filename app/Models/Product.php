@@ -13,16 +13,18 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
-    public function scopeFilter($query) 
+    public function scopeFilter($query)
     {
-        if(request('search')) {
-            return $query->where('title', 'like', '%' . request('search') . '%')
-                        ->orWhere('price', 'like', '%' . request('search') . '%')
-                        ->orWhere('name_profil', 'like', '%' . request('search') . '%');
+        if (request('search')) {
+            return $query
+                ->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('price', 'like', '%' . request('search') . '%')
+                ->orWhere('name_profil', 'like', '%' . request('search') . '%');
         }
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }

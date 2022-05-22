@@ -102,3 +102,8 @@ body {
 header .logoadmin {
   height: 40px;
 }
+
+.dashboard-admin .card-body:hover{
+  background-color: #00d1fa;
+  transform: scale(1.1);
+}

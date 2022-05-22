@@ -1,7 +1,7 @@
 @extends('layouts.appdashboard')
 
 @section('title')
-Kerjasa | Dashboard Admin
+Kerjasa | Halaman User
 @endsection
 
 @section('content')
@@ -29,10 +29,13 @@ Kerjasa | Dashboard Admin
             <thead>
                 <tr>
                     <th scope="col">No.</th>
-                    <th scope="col">Nama</th>
+                    <th scope="col">Nama Pelanggan</th>
                     <th scope="col">Email</th>
                     <th scope="col">No. Hp</th>
                     <th scope="col">Bergabung Sejak</th>
+                    <th scope="col"></th>
+                    <th scope="col">Aksi</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,9 +46,18 @@ Kerjasa | Dashboard Admin
                     <td>{{ $user->email }}</td>
                     <td><a href="https://wa.me/+{{ $user->phone }}?text=Hi, saya Randa admin dari kerjasa.id" target="_blank">{{ $user->phone }}</a></td>
                     <td>{{ $user->created_at }}</td>
+                    <td><a class="badge bg-primary text-decoration-none" href="{{ route('admin.users.show', $user->id) }}"><i class="fas fa-eye"></i>&nbsp;lihat</a></td>
+                    <td><a class="badge bg-warning text-dark text-decoration-none" href="{{ route('admin.users.edit', $user->id) }}"><i class="fas fa-edit"></i>&nbsp;edit</a></td>
+                    <td>
+                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="badge bg-danger"><i class="fas fa-trash-alt"></i>&nbsp;Hapus</button>
+                        </form>
+                    </td>
                 </tr>
               @empty
-                <h1>Tidak ada data</h1>
+                <h4 class="text-center">Tidak ada data</h4>
               @endforelse
             </tbody>
         </table>

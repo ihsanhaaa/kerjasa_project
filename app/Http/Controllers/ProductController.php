@@ -14,9 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-
         return view('products', [
-            "products" => Product::latest()->filter()->get()
+            'products' => Product::latest()
+                ->filter()
+                ->get(),
         ]);
     }
 
@@ -49,8 +50,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('product',[
-            "product" => $product
+        // return $product;
+
+        return view('product', [
+            'product' => $product,
         ]);
     }
 

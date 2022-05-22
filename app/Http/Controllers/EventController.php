@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Event;
+use App\Models\Post;
 
 class EventController extends Controller
 {
@@ -14,9 +14,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $posts = Post::all();
 
-        return view('event', compact('events'));
+        return view('posts', [
+            'posts' => $posts,
+        ]);
     }
 
     /**
@@ -46,9 +48,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('post', [
+            'post' => $post,
+        ]);
     }
 
     /**

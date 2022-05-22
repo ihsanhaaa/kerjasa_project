@@ -5,11 +5,15 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\UserController as AdminUser;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
 use App\Http\Controllers\Admin\CategoryController as AdminCategory;
+use App\Http\Controllers\Admin\AdminProductController as AdminServices;
+use App\Http\Controllers\Admin\PostController as AdminPost;
 
 use App\Models\Category;
 
@@ -24,17 +28,14 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [PageController::class, 'index'])->name('welcome');
 
 Route::get('/how', function () {
     return view('how');
 })->name('how');
 
-Route::get('/event', function () {
-    return view('event');
-})->name('event');
+Route::get('posts', [EventController::class, 'index']);
+Route::get('posts/{post:slug}', [EventController::class, 'show']);
 
 Route::get('sign-in-google', [UserController::class, 'google'])->name(
     'user.login.google'
@@ -80,29 +81,28 @@ Route::middleware(['auth'])->group(function () {
 
     // admin dashboard
     Route::prefix('admin/dashboard')
-        ->namespace('Admin')
         ->name('admin.')
         ->middleware('ensureUserRole:admin')
         ->group(function () {
+            // admin dashboard
             Route::get('/', [AdminDashboard::class, 'index'])->name(
                 'dashboard'
             );
-        });
 
-    Route::prefix('admin/users')
-        ->namespace('Admin')
-        ->name('admin.')
-        ->middleware('ensureUserRole:admin')
-        ->group(function () {
-            Route::get('/', [AdminUser::class, 'index'])->name('users');
-        });
+            // admin checkout manage
+            Route::resource('checkouts', AdminCheckout::class);
 
-    Route::prefix('admin/categories')
-        ->namespace('Admin')
-        ->name('admin.')
-        ->middleware('ensureUserRole:admin')
-        ->group(function () {
-            Route::get('/', [AdminCategory::class, 'index'])->name('users');
+            // admin services manage
+            Route::resource('services', AdminServices::class);
+
+            // admin user manage
+            Route::resource('users', AdminUser::class);
+
+            // admin category manage
+            Route::resource('categories', AdminCategory::class);
+
+            // admin post manage
+            Route::resource('posts', AdminPost::class);
         });
 });
 
