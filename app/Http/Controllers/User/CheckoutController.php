@@ -53,9 +53,6 @@ class CheckoutController extends Controller
      */
     public function store(Store $request, Product $product)
     {
-        // return $product;
-        // return $request->all();
-
         // mapping request data
         $data = $request->all();
         $data['user_id'] = Auth::id();
@@ -63,8 +60,8 @@ class CheckoutController extends Controller
 
         // update user data
         $user = Auth::user();
-        $user->email = $data['email'];
         $user->name = $data['name'];
+        $user->email = $data['email'];
         $user->phone = $data['phone'];
         $user->save();
 
@@ -150,13 +147,16 @@ class CheckoutController extends Controller
             'id' => $orderId,
             'price' => $price,
             'quantity' => 1,
-            'name' => "Payment for {$checkout->Product->title} Service"
+            'name' => "Payment for {$checkout->Product->title} Freelance"
         ];
 
         $userData = [
             "first_name" => $checkout->User->name,
             "last_name" => "",
             "phone" => $checkout->User->phone,
+            "address" => "",
+            "city" => "",
+            "postal_code" => "",
             "country_code" => "IDN",
         ];
 

@@ -88,6 +88,7 @@
                     <!-- deskripsi -->
                     <div class="col-md-7 col-lg-8">
                         <h4 class="judul my-1"><strong>DESKRIPSI</strong></h4>
+                        <small class="text-muted"><i class="fas fa-user"></i>&nbsp;Ditulis oleh: Admin&nbsp; • &nbsp;<i class="fas fa-info-circle"></i>&nbsp;Kategori:<a href="/categories/{{ $product->category->slug }}" class="text-decoration-none text-black"> {{ $product->category->name }}</a></small>
                         <hr class="my-3">
                         {!! $product->description !!}
                         <h4 class="judul mt-5"><strong>PROFIL FREELANCER</strong></h4>

@@ -36,7 +36,7 @@ Kerjasa | Beranda
                                     <form action="/services" method="get">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Cari apasaja"
-                                                name="search" value="{{ request('search') }}">
+                                                name="search" value="{{ request('search') }}" autofocus>
                                             <button class="btn btn-primary"><i
                                                     class="fas fa-search"></i>&nbsp;Cari</button>
                                         </div>
@@ -53,7 +53,7 @@ Kerjasa | Beranda
                         <div class="row">
                             @foreach($categories as $category)
                             <div class="col">
-                                <a href="/services">
+                                <a href="categories/{{ $category->slug }}">
                                     <img class="kategori-icon card-img-top"
                                         src="{{ asset('storage/' . $category->image) }}" alt="">
                                     <p>{{ $category->name }}</p>
@@ -148,7 +148,7 @@ Kerjasa | Beranda
         <div class="row mb-4">
 
             <div class="col-md">
-                <h4 class="judul mb-4">Kerjasa, Platform Freelancer Terpercaya No.1 di Kal-Bar</h4>
+                <h4 class="juduldashboard text-center mb-4">Kerjasa, Platform Freelancer Terpercaya No.1 di Kal-Bar</h4>
                 <p class="mb-5">Kerjasa adalah platform freelance profesional nomor 1 terbesar di Kalimantan Barat,
                     berasal dari Samba. Kerjasa membantu pelaku bisnis
                     Indonesia untuk menemukan dan mempekerjakan freelancer secara sederhana, cepat, aman, dan hemat
@@ -168,7 +168,7 @@ Kerjasa | Beranda
             </div>
         </div>
 
-        <h4 class="judul mb-4">Berbagai Kategori Pekerjaan di Kerjasa</h4>
+        <h4 class="juduldashboard text-center mb-4">Berbagai Kategori Pekerjaan di Kerjasa</h4>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-5">
             <div class="col d-flex align-items-start">
                 <div>
@@ -192,6 +192,52 @@ Kerjasa | Beranda
             </div>
         </div>
 
+    </div>
+</section>
+
+<!-- info -->
+<section>
+    <div class="container mt-5 mb-5">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="juduldashboard">Kontak</h1>
+                <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with
+                    this Bootstrap example. It’s built with default Bootstrap components and utilities with little
+                    customization.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31911.216828603057!2d109.0503145!3d1.22791555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49b9cb17e0f83%3A0xa73a2aaef8e12292!2sSemperiuk%20B%2C%20Kec.%20Jawai%20Sel.%2C%20Kabupaten%20Sambas%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1653230517755!5m2!1sid!2sid" width="1000" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="text-center container">
+            <div class="">
+                <div class="container mb-3">
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="review-info">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2">
+                
+                <div class="col">
+                    <div class="shadow-sm mb-4">
+                        <img class="card-img-top" src="" alt="">
+                        <div class="card-body">
+                            <p><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Jalan Semperiuk B, No 50, Dusun Sejalan, RT 009 RW 004, Kec Jawai Selatan, Kab. Sambas, Prov. Kalimantan Barat</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="shadow-sm mb-4">
+                        <img class="card-img-top" src="" alt="">
+                        <div class="card-body">
+                            <p><i class="far fa-envelope"></i>&nbsp;&nbsp;kerjasa.id@gmail.com</p>
+                            <p><i class="fas fa-headset"></i>&nbsp;&nbsp;+6285754812451</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </section>
 

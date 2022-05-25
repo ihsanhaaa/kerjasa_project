@@ -33,8 +33,9 @@
     @yield('content')
 
     <div class="side">
-		<a href="https://instagram.com/kerjasa.id?igshid=YmMyMTA2M2Y=" style="background:#27ae60;" target="_blank">Sosmed&nbsp;&nbsp;<i class="fab fa-instagram"></i></a>
-		<a href="https://wa.me/+6285754812451?text=Hi admin kerjasa.id, saya ingin bertanya" style="background:#c0392b;" target="_blank">Kontak &nbsp;&nbsp;&nbsp;<i class="fas fa-headset"></i></a>
+		<a href="https://instagram.com/kerjasa.id?igshid=YmMyMTA2M2Y=" style="background:#00d1fa;" target="_blank">Sosmed&nbsp;&nbsp;<i class="fab fa-instagram"></i></a>
+		<a href="https://wa.me/+6285754812451?text=Hi admin kerjasa.id, saya ingin bertanya" style="background:#00d1fa;" target="_blank">Kontak &nbsp;&nbsp;&nbsp;<i class="fas fa-headset"></i></a>
+        <a href="https://forms.gle/rcXj3CGiQwYM44ho8" style="background:#00d1fa;" target="_blank">Masukan&nbsp;<i class="far fa-comment"></i></a>
 	</div>
 
     @include('components.footer')

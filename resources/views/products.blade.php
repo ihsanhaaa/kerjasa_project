@@ -25,7 +25,7 @@
                                     <form action="/services" method="get">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Cari apasaja" name="search"
-                                                value="{{ request('search') }}">
+                                                value="{{ request('search') }}" autofocus>
                                             <button class="btn btn-primary"><i class="fas fa-search"></i>&nbsp;Cari</button>
                                         </div>
                                     </form>
@@ -71,8 +71,8 @@
             </div>
         </div>
     @else
-        <p class="text-center">Tidak ada Freelance</p>
+        <p class="text-center">Tidak ada Data</p>
     @endif
-    </section>
+</section>
 
 @endsection

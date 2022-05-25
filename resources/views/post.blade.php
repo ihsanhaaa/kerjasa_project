@@ -29,7 +29,7 @@
                     <!-- deskripsi -->
                     <div class="col-md-12 col-lg-12">
                         <h4 class="judul mt-4"><strong>DESKRIPSI</strong></h4>
-                        <small class="text-muted"><i class="fas fa-user"></i>&nbsp;Admin&nbsp; • &nbsp;<i class="far fa-calendar-alt"></i>&nbsp;{{ $post->created_at->format('M d Y') }}</small>
+                        <small class="text-muted"><i class="fas fa-user"></i>&nbsp;Ditulis oleh: Admin&nbsp; • &nbsp;<i class="far fa-calendar-alt"></i>&nbsp;{{ $post->created_at->format('M d Y') }}</small>
                         <hr class="my-3">
                         {!! $post->description !!}                        
                     </div>

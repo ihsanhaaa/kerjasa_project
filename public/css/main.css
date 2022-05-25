@@ -355,6 +355,11 @@ footer {
   transform: scale(1.1);
 }
 
+.review-info i {
+  color: #00d1fa;
+  font-size: 25px;
+}
+
 
 .kategori {
   margin-top: 60px;
@@ -418,7 +423,7 @@ footer {
 .side {
   position: fixed;
   top: 70%;
-  transform: translateY(-50%);
+  transform: translateY(-5%);
 }
 
 .side a {

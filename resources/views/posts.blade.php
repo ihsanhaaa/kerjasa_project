@@ -30,7 +30,7 @@
             </div>
         </div>
     @else
-        <p class="text-center">Tidak ada Postingan</p>
+        <p class="text-center">Tidak ada Data</p>
     @endif
     </section>
 

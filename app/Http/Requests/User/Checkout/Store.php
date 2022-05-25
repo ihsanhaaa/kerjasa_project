@@ -23,10 +23,13 @@ class Store extends FormRequest
      * @return array
      */
     public function rules()
-    {        
+    {
+        $expiredValidation = date('Y-m', time());
+
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,'.Auth::id().',id',
+            'email' =>
+                'required|email|unique:users,email,' . Auth::id() . ',id',
             'phone' => 'required|string',
         ];
     }

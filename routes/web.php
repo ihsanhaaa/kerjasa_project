@@ -45,6 +45,20 @@ Route::get('auth/google/callback', [
     'handleProviderCallback',
 ])->name('user.google.callback');
 
+// route kategori
+Route::get('/categories', function () {
+    return view('categories', [
+        'categories' => Category::all(),
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        'products' => $category->products,
+        'category' => $category->name,
+    ]);
+});
+
 // midtrans routes
 Route::get('payment/success', [CheckoutController::class, 'midtransCallback']);
 Route::post('payment/success', [CheckoutController::class, 'midtransCallback']);
